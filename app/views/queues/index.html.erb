@@ -1,0 +1,13 @@
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <% @virtual_hosts.each do |virtual_host| %>
+      <% virtual_host.queues.each do |queue| %>
+        <tr>
+          <td class="queue-name"><%= queue.name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

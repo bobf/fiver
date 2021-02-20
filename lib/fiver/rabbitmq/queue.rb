@@ -12,18 +12,18 @@ module Fiver
         @connection = connection
       end
 
-      def messages
+      def jobs
         channel = @connection.create_channel
         queue = channel.queue(@name, durable: true)
-        messages = []
+        jobs = []
         loop do
           message = queue.pop(manual_ack: true)
           break if message.all?(&:nil?)
 
-          messages << Job.new(*message)
+          jobs << Job.new(*message)
         end
         channel.close
-        messages
+        jobs
       end
     end
   end

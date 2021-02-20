@@ -15,7 +15,7 @@ module Fiver
 
     FETCHABLE_METHODS.each do |name|
       define_method name do
-        payload&.fetch(name)
+        payload&.fetch(name, nil)
       end
     end
 

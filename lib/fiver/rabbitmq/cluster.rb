@@ -20,7 +20,8 @@ module Fiver
 
       def queues(virtual_host: nil)
         connection = Rabbitmq.connection(virtual_host: virtual_host)
-        get("queues/#{virtual_host}").map { |queue| Queue.new(queue[:name], connection: connection) }
+        path = virtual_host.nil? ? 'queues' : "queues/#{virtual_host}"
+        get(path).map { |queue| Queue.new(queue[:name], connection: connection) }
       end
 
       private

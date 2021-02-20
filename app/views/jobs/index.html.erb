@@ -1,0 +1,11 @@
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td class="job-class"><%= job.job_class %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

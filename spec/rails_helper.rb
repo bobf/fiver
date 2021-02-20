@@ -8,6 +8,7 @@ require File.expand_path('../config/environment', __dir__)
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
+require 'rspec/html'
 require 'rspec/rails'
 require 'advanced_sneakers_activejob'
 
@@ -22,7 +23,7 @@ end
 
 # RabbitMQ management plugin does not update instantly so we need to slow down tests in order to
 # see latest data and have reliable tests.
-Fiver::Rabbitmq::Cluster.poll_delay = 0.5
+Fiver::Rabbitmq::Cluster.poll_delay = 1
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -37,6 +38,7 @@ RSpec.configure do |config|
     channel.queue('default', durable: true).purge
     channel.queue_delete('default')
     channel.queue_delete('test-queue')
+    channel.queue_delete('example-queue')
     connection.stop
   end
 end

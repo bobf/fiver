@@ -7,8 +7,8 @@ RSpec.describe Fiver::Rabbitmq::Queue do
 
   it { is_expected.to be_a described_class }
 
-  describe '#messages' do
-    subject(:messages) { queue.messages }
+  describe '#jobs' do
+    subject(:jobs) { queue.jobs }
 
     before do
       connection.start
