@@ -3,3 +3,4 @@ AllCops:
   Exclude:
     - 'node_modules/**/*'
     - 'bin/**/*'
+    - 'db/schema.rb'

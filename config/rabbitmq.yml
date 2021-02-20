@@ -1,0 +1,8 @@
+development:
+  url: <%= ENV.fetch('RABBITMQ_URL', 'amqp://127.0.0.1:50489') %>
+
+test:
+  url: <%= ENV.fetch('RABBITMQ_URL', 'amqp://127.0.0.1:50488') %>
+
+production:
+  url: <%= ENV['RABBITMQ_URL'] %>

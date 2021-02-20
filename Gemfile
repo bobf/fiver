@@ -12,6 +12,7 @@ gem 'rails', '~> 6.0', '>= 6.0.3.4'
 gem 'sass-rails', '~> 6.0'
 gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5.2'
+gem 'unicorn', '~> 5.8'
 gem 'webpacker', '~> 4.0'
 
 group :development do
@@ -23,6 +24,7 @@ group :development do
 end
 
 group :test do
+  gem 'brakeman', '~> 4.10'
   gem 'rspec-rails', '~> 4.0'
   gem 'rubocop', '~> 1.10'
   gem 'rubocop-rails', '~> 2.9'
