@@ -4,3 +4,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'bin/**/*'
     - 'db/schema.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'

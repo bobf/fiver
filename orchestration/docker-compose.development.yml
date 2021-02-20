@@ -2,9 +2,10 @@
 version: '3.7'
 services:
   rabbitmq:
-    image: library/rabbitmq
+    image: library/rabbitmq:management
     ports:
     - 50489:5672
+    - 50490:15672
     networks:
       local: {}
 volumes: {}

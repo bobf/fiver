@@ -27,10 +27,6 @@ services:
         max-file: '5'
     networks:
       local: {}
-  rabbitmq:
-    image: library/rabbitmq
-    networks:
-      local: {}
 volumes: {}
 networks:
   local:

@@ -1,24 +1,11 @@
-# README
+# Fiver
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dashboard and management console for [ActiveJob](https://guides.rubyonrails.org/active_job_basics.html)'s [`:advanced_sneakers` adapter](https://github.com/veeqo/advanced-sneakers-activejob) (built on top of [Sneakers](https://github.com/jondot/sneakers)).
 
-Things you may want to cover:
+Run as a standalone application using a pre-built _Docker_ image or mount as a _Rails_ engine inside your application.
 
-* Ruby version
+Your _RabbitMQ_ instance *must* have the [`management` plugin](https://www.rabbitmq.com/management.html) enabled.
 
-* System dependencies
+## License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[MIT License](LICENSE)

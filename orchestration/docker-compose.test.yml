@@ -2,11 +2,14 @@
 version: '3.7'
 services:
   rabbitmq:
-    image: library/rabbitmq
+    image: library/rabbitmq:management
     ports:
     - "${sidecar-50488:}5672"
+    - "${sidecar-50487:}15672"
     networks:
       local: {}
+    volumes:
+      - "./orchestration/rabbitmq.test.conf:/etc/rabbitmq/conf.d/test.conf"
 volumes: {}
 networks:
   local:

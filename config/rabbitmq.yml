@@ -1,8 +1,11 @@
 development:
   url: <%= ENV.fetch('RABBITMQ_URL', 'amqp://127.0.0.1:50489') %>
+  management_url: <%= ENV.fetch('RABBITMQ_MANAGEMENT_URL', 'http://guest:guest@127.0.0.1:50490') %>
 
 test:
   url: <%= ENV.fetch('RABBITMQ_URL', 'amqp://127.0.0.1:50488') %>
+  management_url: <%= ENV.fetch('RABBITMQ_MANAGEMENT_URL', 'http://guest:guest@127.0.0.1:50487') %>
 
 production:
   url: <%= ENV['RABBITMQ_URL'] %>
+  management_url: <%= ENV['RABBITMQ_MANAGEMENT_URL'] %>
