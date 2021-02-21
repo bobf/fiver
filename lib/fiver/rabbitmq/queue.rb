@@ -12,6 +12,10 @@ module Fiver
         @connection = connection
       end
 
+      def virtual_host
+        @connection.vhost
+      end
+
       def jobs
         channel = @connection.create_channel
         queue = channel.queue(@name, durable: true)

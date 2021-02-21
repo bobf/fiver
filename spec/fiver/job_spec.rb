@@ -5,21 +5,7 @@ RSpec.describe Fiver::Job do
 
   let(:info) { nil }
   let(:properties) { nil }
-  let(:payload) do
-    {
-      'job_class' => 'TestJob',
-      'job_id' => '14b0c2c2-ff02-481d-b905-a36f858bde0d',
-      'provider_job_id' => nil,
-      'queue_name' => 'default',
-      'priority' => nil,
-      'arguments' => [],
-      'executions' => 0,
-      'exception_executions' => {},
-      'locale' => 'en',
-      'timezone' => 'UTC',
-      'enqueued_at' => '2021-02-20T12:44:12Z'
-    }.to_json
-  end
+  let(:payload) { fixture('job.json').read }
 
   its(:job_class) { is_expected.to eql 'TestJob' }
   its(:job_id) { is_expected.to eql '14b0c2c2-ff02-481d-b905-a36f858bde0d' }

@@ -5,6 +5,8 @@ RSpec.describe Fiver::Rabbitmq::VirtualHost do
 
   it { is_expected.to be_a described_class }
 
+  its(:name) { is_expected.to eql '/' }
+
   context 'with queues' do
     before do
       TestJob.perform_later(1, 2, 'three')

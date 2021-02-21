@@ -28,6 +28,7 @@ end
 
 group :test do
   gem 'brakeman', '~> 4.10'
+  gem 'rspec-file_fixtures'
   gem 'rspec-html', '~> 0.2.6'
   gem 'rspec-its', '~> 1.3'
   gem 'rspec-rails', '~> 4.0'

@@ -7,6 +7,8 @@ RSpec.describe Fiver::Rabbitmq::Queue do
 
   it { is_expected.to be_a described_class }
 
+  its(:virtual_host) { is_expected.to eql '/' }
+
   describe '#jobs' do
     subject(:jobs) { queue.jobs }
 

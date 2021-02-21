@@ -3,6 +3,7 @@
 # Provides access to active RabbitMQ jobs.
 class JobsController < ApplicationController
   def index
+    @queue = queue
     @jobs = queue.jobs
   end
 

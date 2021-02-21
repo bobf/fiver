@@ -1,0 +1,13 @@
+{
+   "enqueued_at" : "2021-02-20T12:44:12Z",
+   "exception_executions" : {},
+   "job_id" : "14b0c2c2-ff02-481d-b905-a36f858bde0d",
+   "timezone" : "UTC",
+   "job_class" : "TestJob",
+   "arguments" : [],
+   "queue_name" : "default",
+   "provider_job_id" : null,
+   "priority" : null,
+   "locale" : "en",
+   "executions" : 0
+}

@@ -1,8 +1,24 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+AdvancedSneakersActiveJob.configure do |config|
+  config.sneakers = {
+    connection: Bunny.new(Rails.application.config_for(:rabbitmq)[:url]),
+    exchange: 'fiver-test',
+    handler: AdvancedSneakersActiveJob::Handler
+  }
+end
+
+class DemoJob < ApplicationJob
+  def perform
+    puts 'Running demo job.'
+  end
+end
+
+Rails.application.configure do
+  config.active_job.queue_adapter = :advanced_sneakers
+end
+
+DemoJob.perform_later
+DemoJob.perform_later
+DemoJob.perform_later
+DemoJob.perform_later

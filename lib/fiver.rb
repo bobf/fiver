@@ -8,4 +8,10 @@ require 'fiver/job'
 
 module Fiver
   class Error < StandardError; end
+
+  module Rabbitmq
+    class Error < Fiver::Error; end
+
+    class ConnectionError < Error; end
+  end
 end

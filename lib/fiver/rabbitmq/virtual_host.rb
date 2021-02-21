@@ -4,6 +4,8 @@ module Fiver
   module Rabbitmq
     # Manages a connection to a RabbitMQ virtual host with multiple queues.
     class VirtualHost
+      attr_reader :name
+
       def initialize(name = '/', description: nil, cluster: Rabbitmq.cluster, connection: Rabbitmq.connection)
         @name = name
         @description = description

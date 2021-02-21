@@ -1,11 +1,35 @@
-<table>
-  <thead>
-  </thead>
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td class="job-class"><%= job.job_class %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1>Jobs [<%= @queue.name %>]</h1>
+
+<div class="container jobs">
+  <div class="row headers">
+    <div class="row">
+      <div class="col-sm">
+        Job Class
+      </div>
+      <div class="col-sm">
+        Job ID
+      </div>
+      <div class="col-sm">
+        Provider Job ID
+      </div>
+      <div class="col-sm">
+        Priority
+      </div>
+      <div class="col-sm">
+        Arguments
+      </div>
+      <div class="col-sm">
+        Executiions
+      </div>
+      <div class="col-sm">
+        Exception Executions
+      </div>
+      <div class="col-sm">
+        Enqueued At
+      </div>
+    </div>
+  </div>
+  <% @jobs.each do |job| %>
+    <%= render partial: 'jobs/summary', locals: { job: job } %>
+  <% end %>
+</div>

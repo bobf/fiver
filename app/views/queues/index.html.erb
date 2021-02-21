@@ -1,13 +1,14 @@
-<table>
-  <thead>
-  </thead>
-  <tbody>
-    <% @virtual_hosts.each do |virtual_host| %>
+<h1>Queues</h1>
+
+<div class="container">
+  <% @virtual_hosts.each do |virtual_host| %>
+    <div class="row virtual-host">
+      <h3><%= virtual_host.name == '/' ? '/ (default)' : virtual_host.name %></h3>
       <% virtual_host.queues.each do |queue| %>
-        <tr>
-          <td class="queue-name"><%= queue.name %></td>
-        </tr>
+        <div class="col-sm">
+          <%= link_to queue.name, queue_jobs_path(queue_id: queue.name) %>
+        </div>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+  <% end %>
+</div>

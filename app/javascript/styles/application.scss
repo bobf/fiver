@@ -1,0 +1,23 @@
+body {
+  background-color: #fff;
+}
+
+.logo-container {
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  background-image: url("~images/logo.png");
+  width: 93px;
+  height: 140px;
+}
+
+.jobs {
+  .headers {
+    font-weight: bold;
+  }
+}

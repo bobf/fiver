@@ -8,6 +8,7 @@ require File.expand_path('../config/environment', __dir__)
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
+require 'rspec/file_fixtures'
 require 'rspec/html'
 require 'rspec/rails'
 require 'advanced_sneakers_activejob'

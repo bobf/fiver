@@ -31,6 +31,8 @@ module Fiver
         request.basic_auth(uri.user, uri.password)
         body = request.public_send(verb, join('/api/', resource)).body
         JSON.parse(body, symbolize_names: true)
+      rescue Faraday::ConnectionFailed
+        raise ConnectionError
       end
 
       def join(*args)

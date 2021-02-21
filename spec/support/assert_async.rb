@@ -6,7 +6,7 @@
 module AssertAsync
   def assert_async(delay: 2, iterations: 3, &block)
     iterations.times do
-      break unless block.call
+      return unless block.call
 
       sleep delay
     end
