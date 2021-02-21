@@ -4,10 +4,6 @@ module Fiver
   module Rabbitmq
     # Interacts with the rabbitmq management plugin to extract information about the cluster.
     class Cluster
-      class << self
-        attr_accessor :poll_delay
-      end
-
       def initialize(management_url: Rabbitmq.management_url)
         @management_url = management_url
       end
@@ -31,8 +27,6 @@ module Fiver
       end
 
       def response(verb, resource)
-        sleep Cluster.poll_delay unless Cluster.poll_delay.nil?
-
         request = Faraday.new(url: @management_url)
         request.basic_auth(uri.user, uri.password)
         body = request.public_send(verb, join('/api/', resource)).body

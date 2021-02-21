@@ -11,7 +11,9 @@ RSpec.describe Fiver::Rabbitmq::VirtualHost do
     end
 
     its(:queues) { is_expected.to all(be_a Fiver::Rabbitmq::Queue) }
-    its(:queues) { is_expected.to_not be_empty }
+    it 'returns queues' do
+      assert_async { !virtual_host.queues.empty? }
+    end
   end
 
   context 'without queues' do

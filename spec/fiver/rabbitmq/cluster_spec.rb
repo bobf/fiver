@@ -17,7 +17,9 @@ RSpec.describe Fiver::Rabbitmq::Cluster do
       TestJob.perform_later(1, 2, 'three')
     end
 
-    its(:queues) { is_expected.to_not be_empty }
     its(:queues) { is_expected.to all(be_a Fiver::Rabbitmq::Queue) }
+    it 'returns queues' do
+      assert_async { !cluster.queues.empty? }
+    end
   end
 end

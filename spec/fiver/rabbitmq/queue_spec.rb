@@ -16,7 +16,9 @@ RSpec.describe Fiver::Rabbitmq::Queue do
     end
 
     it { is_expected.to all(be_a Fiver::Job) }
-    it { is_expected.to_not be_empty }
+    it 'returns jobs' do
+      assert_async { !queue.jobs.empty? }
+    end
 
     context 'with default constructor arguments' do
       let(:queue) { described_class.new }

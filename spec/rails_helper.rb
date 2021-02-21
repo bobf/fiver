@@ -21,15 +21,12 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-# RabbitMQ management plugin does not update instantly so we need to slow down tests in order to
-# see latest data and have reliable tests.
-Fiver::Rabbitmq::Cluster.poll_delay = 1
-
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.include AssertAsync
 
   config.before(:each) do
     connection = Bunny.new(Rails.application.config_for(:rabbitmq)[:url])
