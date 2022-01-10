@@ -1,4 +1,4 @@
 en:
   app:
     errors:
-      connection: "Unable to connect to RabbitMQ server."
+      connection: "Unable to connect to RabbitMQ server. (%{message})"

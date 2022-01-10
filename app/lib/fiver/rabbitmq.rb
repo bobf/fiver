@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'fiver/rabbitmq/queue'
-require 'fiver/rabbitmq/virtual_host'
-require 'fiver/rabbitmq/cluster'
-
 module Fiver
   # Provides defaults for connectivity to RabbitMQ. Contains classes which abstract various
   # RabbitMQ components.

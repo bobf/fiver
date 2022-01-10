@@ -32,7 +32,7 @@ module Fiver
         body = request.public_send(verb, join('/api/', resource)).body
         JSON.parse(body, symbolize_names: true)
       rescue Faraday::ConnectionFailed
-        raise ConnectionError
+        raise ConnectionError, censored_uri
       end
 
       def join(*args)
@@ -41,6 +41,13 @@ module Fiver
 
       def uri
         URI.parse(@management_url)
+      end
+
+      def censored_uri
+        uri.dup.tap do |object|
+          object.user = '*******' unless object.user.nil?
+          object.password = '*******' unless object.user.nil?
+        end.to_s
       end
     end
   end

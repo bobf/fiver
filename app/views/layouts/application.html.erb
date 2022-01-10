@@ -21,8 +21,14 @@
         <%= link_to root_path do %>
           <div class="logo"></div>
         <% end %>
-        <span>VirtualHosts: <%= @virtual_hosts.size %></span>
-        <span>Queues: <%= @queues.size %></span>
+
+        <% if @virtual_hosts.present? %>
+          <span>VirtualHosts: <%= @virtual_hosts.size %></span>
+        <% end %>
+
+        <% if @queues.present? %>
+          <span>Queues: <%= @queues.size %></span>
+        <% end %>
       </div>
       <%= yield %>
     </div>

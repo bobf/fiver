@@ -6,8 +6,6 @@ require 'rails/all'
 
 $LOAD_PATH.insert(0, File.expand_path(File.join(__dir__, '..', 'lib')))
 
-require 'fiver'
-
 Bundler.require(*Rails.groups)
 
 module Fiver
